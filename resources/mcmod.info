@@ -1,0 +1,17 @@
+[
+{
+"modid": "simplecthon",
+"name": "Simple Cthon",
+"description": "Cthon, a Nether ore.",
+"version": "1.7.10-1.3.0",
+"credits": "Created by akkamaddi, reliant on AleXndrTheGr8st, updated by Sinhika",
+"logoFile": "",
+"mcversion": "",
+"url": "",
+"updateUrl": "",
+"authorList": [ "akkamaddi", "Sinhika" ],
+"parent":"",
+"screenshots": [],
+"dependencies": [ "MinecraftForge" "simpleores" simpleoresfusion ]
+}
+]
