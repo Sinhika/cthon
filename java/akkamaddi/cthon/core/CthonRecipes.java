@@ -11,7 +11,8 @@ import alexndr.SimpleOres.plugins.fusion.FusionHelper;
 
 public class CthonRecipes
 {
-    public static void doCthonRecipes()
+    @SuppressWarnings("unchecked")
+	public static void doCthonRecipes()
     {
         // Ore Dictionary
         OreDictionary.registerOre("ingotCthon", new ItemStack(SimpleCthonCore.cthonIngot));
@@ -64,7 +65,7 @@ public class CthonRecipes
                     "X X", "X X", 'X', "ingotCthon"
                 }));
         // recipes: Smelting
-        GameRegistry.addSmelting(SimpleCthonCore.cthonElutriatedChunk.itemID, new ItemStack(SimpleCthonCore.cthonIngot), 2.0F);
+        GameRegistry.addSmelting(SimpleCthonCore.cthonElutriatedChunk, new ItemStack(SimpleCthonCore.cthonIngot), 2.0F);
         // Fusion Furnace
         FusionHelper.fusionFurnaceRecipes.smelting().addSmelting(new ItemStack(SimpleCthonCore.cthonMephiticChunk), new ItemStack(Block.ice), new ItemStack(Item.goldNugget), new ItemStack(SimpleCthonCore.cthonElutriatedChunk), 1.0F);
 

@@ -1,5 +1,25 @@
 package akkamaddi.cthon.core;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.util.EnumHelper;
+import akkamaddi.akkamaddiCore.api.CommonProxy;
+import alexndr.SimpleOres.api.content.SimpleArmor;
+import alexndr.SimpleOres.api.content.SimpleAxe;
+import alexndr.SimpleOres.api.content.SimpleBlock;
+import alexndr.SimpleOres.api.content.SimpleHoe;
+import alexndr.SimpleOres.api.content.SimpleIngot;
+import alexndr.SimpleOres.api.content.SimplePickaxe;
+import alexndr.SimpleOres.api.content.SimpleShovel;
+import alexndr.SimpleOres.api.content.SimpleSword;
+import alexndr.SimpleOres.api.content.SimpleTab;
+import alexndr.SimpleOres.api.helpers.LootHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler; // used in 1.6.2
 import cpw.mods.fml.common.Mod.Instance;
@@ -7,39 +27,10 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
-import cpw.mods.fml.common.FMLLog;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.EnumArmorMaterial;
-import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.world.World;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.common.EnumHelper;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.Configuration;
-import net.minecraftforge.event.ForgeSubscribe;
-import alexndr.SimpleOres.api.content.SimpleIngot;
-import alexndr.SimpleOres.api.content.SimpleSword;
-import alexndr.SimpleOres.api.content.SimpleShovel;
-import alexndr.SimpleOres.api.content.SimpleAxe;
-import alexndr.SimpleOres.api.content.SimplePickaxe;
-import alexndr.SimpleOres.api.content.SimpleHoe;
-import alexndr.SimpleOres.api.content.SimpleArmor;
-import alexndr.SimpleOres.api.content.SimpleOre;
-import alexndr.SimpleOres.api.content.SimpleTab;
-import alexndr.SimpleOres.api.helpers.LootHelper;
 
 @Mod(modid = "simplecthon", name = "Simple Cthon", version = "1.7.10-1.3.0", 
-	 dependencies = "required-after:simpleores ; required-after:simpleoresfusion")
+	 dependencies = "required-after:simpleores ; required-after:required-after:fusionplugin ; required-after:akkamaddicore")
 
 public class SimpleCthonCore {
 	// The instance of your mod that Forge uses.
@@ -48,7 +39,7 @@ public class SimpleCthonCore {
 
 	// Says where the client and server 'proxy' code is loaded.
 	@SidedProxy(clientSide = "akkamaddi.cthon.core.ClientProxy", 
-				serverSide = "akkamaddi.cthon.core.CommonProxy")
+				serverSide = "akkamaddi.akkamaddiCore.CommonProxy")
 	public static CommonProxy proxy;
 
 	// set item ID, to-from config file
@@ -111,13 +102,15 @@ public class SimpleCthonCore {
 		tabAkkamaddiCthon.setIcon(new ItemStack(SimpleCthonCore.oreCthon));
 	}
 
+    /**
+     * Run before anything else. Read your config, create blocks, items, etc, and 
+     * register them with the GameRegistry. Register recipes.
+     */
 	@EventHandler
-	// used in 1.6.2
 	public void preInit(FMLPreInitializationEvent event) {
 		// Stub Method
 		MinecraftForge.EVENT_BUS.register(new HandlerArmor());
-		Configuration config = new Configuration(
-				event.getSuggestedConfigurationFile());
+		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
 		// Adjustable Ore Spawn Rates
 		cthonSpawnRate = config.get("05. Spawn Rate", "Cthon Spawn Rate", 4)
@@ -181,19 +174,23 @@ public class SimpleCthonCore {
 				.setUnlocalizedName("cthonBoots");
 		
 		// define blocks
-		blockCthon = new SimpleOre( Material.iron)
+		blockCthon = new SimpleBlock( Material.iron)
 				.modId("simplecthon").setHardness(16.0F).setResistance(42.0F)
 				.setStepSound(Block.soundTypeMetal)
 				.setCreativeTab(SimpleCthonCore.tabAkkamaddiCthon)
-				.setUnlocalizedName("blockCthon");
+				.setBlockName("blockCthon");
 		oreCthon = new CthonOreBlock( Material.iron, "simplecthon")
 				.setHardness(14.0F).setResistance(14.0F)
 				.setStepSound(Block.soundTypeStone)
 				.setCreativeTab(SimpleCthonCore.tabAkkamaddiCthon)
-				.setUnlocalizedName("oreCthon");
+				.setBlockName("oreCthon");
+		((SimpleBlock) oreCthon).setStackToDrop(new ItemStack(cthonMephiticChunk));
 		
-		// Register items
-		GameRegistry.registerBlock(oreCthon, "oreCthon");
+		// name stuff
+		blockCthon.setHarvestLevel("pickaxe", 0);
+		oreCthon.setHarvestLevel( "pickaxe", 4);
+		toolCthon.customCraftingMaterial = SimpleCthonCore.cthonIngot;
+		armorCthon.customCraftingMaterial = SimpleCthonCore.cthonIngot;
 
 		// loot
 		LootHelper.addLoot("pyramidDesertyChest", new ItemStack(cthonIngot), 1,
@@ -206,30 +203,28 @@ public class SimpleCthonCore {
 				1, 1, 1);
 		LootHelper.addLoot("dungeonChest", new ItemStack(cthonIngot), 1, 1, 1);
 		LootHelper.addLoot("dungeonChest", new ItemStack(cthonShovel), 1, 1, 1);
+		
 		// run tab icon call
 		setTabIcons();
 		// recipes
 		CthonRecipes.doCthonRecipes();
-	}
+		
+		GameRegistry.registerWorldGenerator(new SimpleCthonGenerator(), 1);
+		MinecraftForge.EVENT_BUS.register(new HandlerJoinWorld());
+	} // end preInit()
 
+    /**
+     * Do your mod setup. Build whatever data structures you care about. 
+     */
 	@EventHandler
-	// used in 1.6.2
 	public void load(FMLInitializationEvent event) {
 		proxy.registerRenderers();
-		GameRegistry.registerWorldGenerator(new SimpleCthonGenerator());
-		MinecraftForge.EVENT_BUS.register(new HandlerJoinWorld());
-		
-		// Armor Renderers
-		rendererCthon = proxy.addArmor("cthon");
-		// name stuff
-		blockCthon.setHarvestLevel("pickaxe", 0);
-		oreCthon.setHarvestLevel( "pickaxe", 4);
-		toolCthon.customCraftingMaterial = SimpleCthonCore.cthonIngot;
-		armorCthon.customCraftingMaterial = SimpleCthonCore.cthonIngot;
 	}
 
+    /**
+     * Handle interaction with other mods, complete your setup based on this.
+     */
 	@EventHandler
-	// used in 1.6.2
 	public void postInit(FMLPostInitializationEvent event) {
 		// Stub Method
 	}
