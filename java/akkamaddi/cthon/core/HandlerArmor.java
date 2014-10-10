@@ -1,44 +1,35 @@
 package akkamaddi.cthon.core;
 
-import java.util.EnumSet;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraft.world.World;
-import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import akkamaddi.akkamaddiCore.api.SimpleArmorWithEffect;
+import akkamaddi.akkamaddiCore.api.SimpleArmorWithEffect.ARMOR_TYPE;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class HandlerArmor
 {
     //effects
-    @ForgeSubscribe
+	@SubscribeEvent
     public void onFallDamage(LivingAttackEvent event)
     {
         if (event.entity instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer)event.entity;
-            ItemStack helmet = player.getCurrentItemOrArmor(4);
-            ItemStack chest = player.getCurrentItemOrArmor(3);
-            ItemStack legs = player.getCurrentItemOrArmor(2);
-            ItemStack boots = player.getCurrentItemOrArmor(1);
+			ItemStack [] armorbits = new ItemStack[4];
+			SimpleArmorWithEffect.getArmorPieces(player, armorbits);
 
-            if (event.entity instanceof EntityPlayer)
-            {
-                EntityPlayer eventPlayer = (EntityPlayer)event.entity;
-
-                if (helmet != null && chest != null && legs != null && boots != null)
-                {
-                    if (helmet.getItem() == SimpleCthonCore.cthonHelm & chest.getItem() == SimpleCthonCore.cthonChest & legs.getItem() == SimpleCthonCore.cthonLegs & boots.getItem() == SimpleCthonCore.cthonBoots)
-                    {
-                        if (event.source.equals(DamageSource.wither))
-                        {
-                            event.setCanceled(true);
-                            //return;
-                        }
-                    }
-                }
-            }
+			if (armorbits[ARMOR_TYPE.HELM.ordinal()].getItem() == SimpleCthonCore.cthonHelm
+					&& armorbits[ARMOR_TYPE.CHEST.ordinal()].getItem() == SimpleCthonCore.cthonChest
+					&& armorbits[ARMOR_TYPE.LEGS.ordinal()].getItem() == SimpleCthonCore.cthonLegs
+					&& armorbits[ARMOR_TYPE.BOOTS.ordinal()].getItem() == SimpleCthonCore.cthonBoots) {
+				if (event.source.equals(DamageSource.wither)) {
+					event.setCanceled(true);
+					// return;
+				}
+			}
+            
         }
     }
-}
+} // end class HandlerArmor

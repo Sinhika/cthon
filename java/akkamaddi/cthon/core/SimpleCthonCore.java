@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
+import akkamaddi.akkamaddiCore.api.APIcore;
 import akkamaddi.akkamaddiCore.api.CommonProxy;
 import alexndr.SimpleOres.api.content.SimpleArmor;
 import alexndr.SimpleOres.api.content.SimpleAxe;
@@ -210,7 +211,9 @@ public class SimpleCthonCore {
 		CthonRecipes.doCthonRecipes();
 		
 		GameRegistry.registerWorldGenerator(new SimpleCthonGenerator(), 1);
-		MinecraftForge.EVENT_BUS.register(new HandlerJoinWorld());
+		APIcore.instance.joinWorldModRegistry.add(new JoinWorldHandler());
+		// MinecraftForge.EVENT_BUS.register(new HandlerJoinWorld());
+	    MinecraftForge.EVENT_BUS.register(new HandlerArmor());
 	} // end preInit()
 
     /**
