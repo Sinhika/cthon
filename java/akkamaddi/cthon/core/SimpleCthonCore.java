@@ -1,5 +1,7 @@
 package akkamaddi.cthon.core;
 
+import java.io.File;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -31,7 +33,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = "simplecthon", name = "Simple Cthon", version = "1.7.10-1.3.0", 
-	 dependencies = "required-after:simpleores ; required-after:required-after:fusionplugin ; required-after:akkamaddicore")
+	 dependencies = "required-after:simpleores ; required-after:fusionplugin ; required-after:akkamaddicore")
 
 public class SimpleCthonCore {
 	// The instance of your mod that Forge uses.
@@ -108,17 +110,21 @@ public class SimpleCthonCore {
      * register them with the GameRegistry. Register recipes.
      */
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		// Stub Method
-		MinecraftForge.EVENT_BUS.register(new HandlerArmor());
-		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
-		config.load();
+	public void preInit(FMLPreInitializationEvent event) 
+	{
+		File installDir = event.getModConfigurationDirectory();
+		File configDir = new File(installDir, "akkamaddi");
+	    File configFile = new File(configDir, "simplecthon.cfg");
+	    Configuration config = new Configuration(configFile);
+	    config.load();
+		
+        MinecraftForge.EVENT_BUS.register(new HandlerArmor());
 		// Adjustable Ore Spawn Rates
-		cthonSpawnRate = config.get("05. Spawn Rate", "Cthon Spawn Rate", 4)
+		cthonSpawnRate = config.get("Ore Generation", "Cthon Spawn Rate", 4)
 				.getInt();
-		cthonVeinSize = config.get("05. Vein Size", "Cthon Vein Size", 4)
+		cthonVeinSize = config.get("Ore Generation", "Cthon Vein Size", 4)
 				.getInt();
-		cthonSpawnHeight = config.get("05. Spawn Height", "Cthon Spawn Height",
+		cthonSpawnHeight = config.get("Ore Generation", "Cthon Spawn Height",
 				256).getInt();
 		// Recycling
 		enableRecycling = config.get(Configuration.CATEGORY_GENERAL,
@@ -212,7 +218,6 @@ public class SimpleCthonCore {
 		
 		GameRegistry.registerWorldGenerator(new SimpleCthonGenerator(), 1);
 		APIcore.instance.joinWorldModRegistry.add(new JoinWorldHandler());
-		// MinecraftForge.EVENT_BUS.register(new HandlerJoinWorld());
 	    MinecraftForge.EVENT_BUS.register(new HandlerArmor());
 	} // end preInit()
 
