@@ -32,7 +32,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "simplecthon", name = "Simple Cthon", version = "1.7.10-1.3.0", 
+@Mod(modid = "simplecthon", name = "Simple Cthon", version = "1.7.10-1.3.1", 
 	 dependencies = "required-after:simpleores ; required-after:fusionplugin ; required-after:akkamaddicore")
 
 public class SimpleCthonCore {
