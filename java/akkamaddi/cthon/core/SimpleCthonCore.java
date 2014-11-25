@@ -32,7 +32,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "simplecthon", name = "Simple Cthon", version = "1.7.10-1.3.1", 
+@Mod(modid = "simplecthon", name = "Simple Cthon", version = "1.7.10-1.3.2", 
 	 dependencies = "required-after:simpleores ; required-after:fusionplugin ; required-after:akkamaddicore")
 
 public class SimpleCthonCore {
@@ -74,7 +74,8 @@ public class SimpleCthonCore {
 
 	// booleans
 	public static boolean enableRecycling;
-
+	public static boolean itemizeMobs;
+	
 	// tab
 	public static SimpleTab tabAkkamaddiCthon = new SimpleTab(
 			"tabAkkamaddiCthon");
@@ -130,6 +131,8 @@ public class SimpleCthonCore {
 		enableRecycling = config.get(Configuration.CATEGORY_GENERAL,
 				"Enable Cthon item recycling recipes: false or true?", false)
 				.getBoolean(false);
+		itemizeMobs = config.get(Configuration.CATEGORY_GENERAL,
+				"Equip mobs with Cthon gear, false or true?", false).getBoolean(false);
 		config.save();
 		
 		// define items
@@ -217,7 +220,9 @@ public class SimpleCthonCore {
 		CthonRecipes.doCthonRecipes();
 		
 		GameRegistry.registerWorldGenerator(new SimpleCthonGenerator(), 1);
-		APIcore.instance.joinWorldModRegistry.add(new JoinWorldHandler());
+		if (itemizeMobs) {
+			APIcore.instance.joinWorldModRegistry.add(new JoinWorldHandler());
+		}
 	    MinecraftForge.EVENT_BUS.register(new HandlerArmor());
 	} // end preInit()
 
