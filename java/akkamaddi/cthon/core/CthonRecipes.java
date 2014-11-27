@@ -16,6 +16,8 @@ public class CthonRecipes
     {
         // Ore Dictionary
         OreDictionary.registerOre("ingotCthon", new ItemStack(SimpleCthonCore.cthonIngot));
+//        OreDictionary.registerOre("oreCthon", new ItemStack(SimpleCthonCore.cthonElutriatedChunk));
+        
         // recipes: Crafting
         //Storage Block
         GameRegistry.addRecipe(new ItemStack(SimpleCthonCore.blockCthon, 1), new Object[] {"AAA", "AAA", "AAA", 'A', SimpleCthonCore.cthonIngot});

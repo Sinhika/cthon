@@ -198,6 +198,7 @@ public class SimpleCthonCore {
 		
 		// name stuff
 		blockCthon.setHarvestLevel("pickaxe", 0);
+		((SimpleBlock) blockCthon).setAsBeaconBase(true);
 		oreCthon.setHarvestLevel( "pickaxe", 4);
 		toolCthon.customCraftingMaterial = SimpleCthonCore.cthonIngot;
 		armorCthon.customCraftingMaterial = SimpleCthonCore.cthonIngot;
