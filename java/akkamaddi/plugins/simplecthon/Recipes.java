@@ -143,6 +143,13 @@ public class Recipes
                 new ItemStack(Blocks.ice), 
                 new ItemStack(Items.gold_nugget),
                 new ItemStack(Content.cthonElutriatedChunk), 1.0F);
+        
+        FusionFurnaceRecipes.addSmelting(
+                new ItemStack(Content.cthonMephiticChunk), 
+                new ItemStack(Blocks.packed_ice), 
+                new ItemStack(Items.gold_nugget),
+                new ItemStack(Content.cthonElutriatedChunk), 1.0F);
+       
     } // end addFusionFurnaceRecipes
 
     private static void addRecyclingRecipes()
