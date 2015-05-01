@@ -70,17 +70,17 @@ public class Settings extends ASettings
      */
     public static void adjustOreSpawnRates() 
     {
-        cthonSpawnRate = config.getInt("Cthon Ore Worldgen",
-                "Cthon Spawn Rate", 4, 0, 5000,
+        cthonSpawnRate = config.getInt("Cthon Spawn Rate","Cthon Ore Worldgen",
+                 4, 0, 5000,
                 "Controls the spawn rate of Cthon Ore.");
-        cthonVeinSize = config.getInt("Cthon Ore Worldgen",
-                "Cthon Vein Size", 4, 0, 5000,
+        cthonVeinSize = config.getInt("Cthon Vein Size","Cthon Ore Worldgen",
+                 4, 0, 5000,
                 "Controls the max vein size of Cthon Ore.");
-        cthonMaxSpawnHeight = config.getInt("Cthon Ore Worldgen",
-                "Cthon Maximum Spawn Height", 255, 0, 255,
+        cthonMaxSpawnHeight = config.getInt("Cthon Maximum Spawn Height","Cthon Ore Worldgen",
+                 255, 0, 255,
                 "Controls the max spawn height of Cthon Ore.");
-        cthonMinSpawnHeight = config.getInt("Cthon Ore Worldgen",
-                "Cthon Minimum Spawn Height", 0, 0, 255,
+        cthonMinSpawnHeight = config.getInt("Cthon Minimum Spawn Height","Cthon Ore Worldgen",
+                 0, 0, 255,
                 "Controls the min spawn height of Cthon Ore.");
        
     } // end adjustOreSpawnRates
