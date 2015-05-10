@@ -1,7 +1,7 @@
-package akkamaddi.cthon.core;
+package akkamaddi.plugins.simplecthon;
 
+import alexndr.api.content.blocks.SimpleBlock;
 import net.minecraft.block.material.Material;
-import alexndr.SimpleOres.api.content.SimpleBlock;
 
 public class CthonOreBlock extends SimpleBlock
 {
