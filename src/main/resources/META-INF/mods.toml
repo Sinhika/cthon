@@ -1,0 +1,55 @@
+# The overall format is standard TOML format, v0.5.0.
+# The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
+modLoader="javafml" #mandatory
+
+# A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+loaderVersion="[36,)" #mandatory
+issueTrackerURL="https://github.com/Sinhika/cthon/issues"
+license="LGPL 3"
+
+[[mods]]
+modId="cthon"
+version="${file.jarVersion}"
+displayName="akkamaddi's Simple Cthon"
+updateJSONURL="https://raw.githubusercontent.com/Sinhika/cthon/1.16/update.json"
+displayURL="http://minecraft.curseforge.com/projects/akkamaddis-simple-cthon"
+credits="akkamaddi (original mod), Sinhika (maintenance, ports)."
+authors="akkamaddi, Sinhika"
+description='''Cthon, a toxic Nether ore that yields a rare, very strong metal when processed.
+'''
+
+[[dependencies.cthon]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36.1.0,37.0.0)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.cthon]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
+    
+[[dependencies.cthon]]
+    modId="simplecorelib"
+    mandatory=true
+    versionRange="[1.16.5-2.0.7.5,1.16.5-2.0.8.0)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.cthon]]
+        modId="silents_mechanisms"
+        mandatory=false
+        versionRange="[0.8.9,)"
+        ordering="BEFORE"
+        side="BOTH"
+        
+[[dependencies.cthon]]
+        modId="silentgear"
+        mandatory=false
+        versionRange="[1.16.3-2.6.5,)"
+        ordering="BEFORE"
+        side="BOTH"
+        

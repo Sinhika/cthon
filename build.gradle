@@ -169,7 +169,7 @@ jar.finalizedBy('reobfJar')
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = 'akkamaddis-cthon'
+            groupId = 'akkamaddis-simple-cthon'
             artifact jar
         }
     }
