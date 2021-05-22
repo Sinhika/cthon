@@ -12,15 +12,15 @@ TO-DO
 * ~~Build assets sub-tree, fix directory names for texture files.~~
 * update texture for cthon ore.
 * ~~create texture for cthon nuggets.~~
-* Build top-level skeleton of mod (main class, event subscribers).
-* Create models and blockstates as needed. All items must have models.
-* Build config classes.
+* ~~Build top-level skeleton of mod (main class, event subscribers).~~
+* ~~Create models and blockstates as needed. All items must have models.~~
+* Build config classes. - started
 * Build content classes that define materials, ArmorMaterial and ItemTier.
-* Build init classes: ModItems, ModBlocks, ModTabGroups, ModTags
+* Build init classes: ModItems, ModBlocks, ModTabGroups, ModTags - started
 * Backfill main class and event subscriber methods as necessary with
-info from init classes.
+info from init classes. -- started
 * Code updated content classes and handlers as needed.
-* Code ore generation.
+* ~~Code ore generation. ~~
 * Build skeleton of datagen classes.
 * code tag generation.
 * code recipe generation.

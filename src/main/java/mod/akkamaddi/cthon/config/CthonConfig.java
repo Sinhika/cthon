@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import mod.alexndr.simplecorelib.config.ISimpleConfig;
+import mod.alexndr.simplecorelib.config.ModOreConfig;
 
 /**
  * Post SimpleCoreLib 2.0.7.5, will need to remove deprecated items since they will
@@ -20,7 +21,10 @@ public class CthonConfig implements ISimpleConfig
     // other variables.
     public static CthonConfig INSTANCE = new CthonConfig();
     public static boolean addChestLoot;
-   
+
+    // Vein/Chunk Count, MinHeight, MaxHeightBase, MaxHeight
+    public static ModOreConfig cthon_cfg;
+    
     @Override
     @Deprecated
     public void clear()
