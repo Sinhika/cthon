@@ -9,6 +9,7 @@ libs/
 bin/
 .gradle/
 *.log
+.*.swp
 *.jar
 *.class
 *.launch

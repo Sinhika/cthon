@@ -11,7 +11,7 @@ TO-DO
 * ~~convert lang file to lang.json.~~
 * ~~Build assets sub-tree, fix directory names for texture files.~~
 * update texture for cthon ore.
-* create texture for cthon nuggets.
+* ~~create texture for cthon nuggets.~~
 * Build top-level skeleton of mod (main class, event subscribers).
 * Create models and blockstates as needed. All items must have models.
 * Build config classes.
