@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "cthon:block/cthon_ore"
+        }
+    }
+}
