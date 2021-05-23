@@ -15,19 +15,20 @@ TO-DO
 * ~~Build top-level skeleton of mod (main class, event subscribers).~~
 * ~~Create models and blockstates as needed. All items must have models.~~
 * Build config classes. - started
-* Build content classes that define materials, ArmorMaterial and ItemTier.
-* Build init classes: ModItems, ModBlocks, ModTabGroups, ModTags - started
+* ~~Build content classes that define materials, ArmorMaterial and ItemTier.~~
+* Build init classes: ~~ModItems~~, ~~ModBlocks~~, ~~ModTabGroups~~, ModTags - started
 * Backfill main class and event subscriber methods as necessary with
 info from init classes. -- started
 * Code updated content classes and handlers as needed.
+* ~~create beacon_block json.~~
 * ~~Code ore generation. ~~
 * Build skeleton of datagen classes.
 * code tag generation.
-* code recipe generation.
-  a. vanilla recipes
-  b. vanilla recycling recipes.
-  c. fusion recipes, if any.
-  d. fusion recycling recipes, if any.
+* code recipe generation.  
+  	a. vanilla recipes.  
+  	b. vanilla recycling recipes.  
+  	c. fusion recipes, if any.  
+  	d. fusion recycling recipes, if any.  
 * code block loot generation.
 * code chest loot generation.
 
