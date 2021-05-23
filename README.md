@@ -16,10 +16,10 @@ TO-DO
 * ~~Create models and blockstates as needed. All items must have models.~~
 * Build config classes. - started
 * ~~Build content classes that define materials, ArmorMaterial and ItemTier.~~
-* Build init classes: ~~ModItems~~, ~~ModBlocks~~, ~~ModTabGroups~~, ModTags - started
-* Backfill main class and event subscriber methods as necessary with
-info from init classes. -- started
-* Code updated content classes and handlers as needed.
+* ~~Build init classes: ModItems, ModBlocks, ModTabGroups, ModTags~~  
+* ~~Backfill main class and event subscriber methods as necessary with~~
+~~info from init classes.~~
+* ~~Code updated content classes and handlers as needed.~~
 * ~~create beacon_block json.~~
 * ~~Code ore generation. ~~
 * Build skeleton of datagen classes.
