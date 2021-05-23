@@ -1,7 +1,16 @@
 package mod.akkamaddi.cthon.init;
 
 import mod.akkamaddi.cthon.Cthon;
+import mod.akkamaddi.cthon.content.CthonArmorMaterial;
+import mod.akkamaddi.cthon.content.CthonItemTier;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.PickaxeItem;
+import net.minecraft.item.ShovelItem;
+import net.minecraft.item.SwordItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -29,10 +38,37 @@ public final class ModItems
             ()-> new Item(new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
     public static final RegistryObject<Item> cthon_elutriated_chunk = ITEMS.register("cthon_elutriated_chunk",
             ()-> new Item(new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
-    public static final RegistryObject<Item> cthon_mephitic_chunk = ITEMS.register("cthon_nugget",
+    public static final RegistryObject<Item> cthon_mephitic_chunk = ITEMS.register("cthon_mephitic_chunk",
             ()-> new Item(new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
     
     // TOOLS & WEAPONS
+    public static final RegistryObject<SwordItem> cthon_sword = ITEMS.register("cthon_sword",
+            () -> new SwordItem(CthonItemTier.CTHON, 3, -2.4F,
+                                new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
+    public static final RegistryObject<PickaxeItem> cthon_pickaxe = ITEMS.register("cthon_pickaxe",
+            () -> new PickaxeItem(CthonItemTier.CTHON, 1, -2.8F,
+                    new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
+    public static final RegistryObject<AxeItem> cthon_axe = ITEMS.register("cthon_axe",
+            () -> new AxeItem(CthonItemTier.CTHON, 7.0F, -3.1F,
+                    new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
+    public static final RegistryObject<ShovelItem> cthon_shovel = ITEMS.register("cthon_shovel",
+            () -> new ShovelItem(CthonItemTier.CTHON, 1.5F, -3.0F,
+                    new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
+    public static final RegistryObject<HoeItem> cthon_hoe = ITEMS.register("cthon_hoe",
+            () -> new HoeItem(CthonItemTier.CTHON,-1, -2.0F,
+                    new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)){});
+    
     // ARMOR
-
+    public static final RegistryObject<ArmorItem> cthon_helmet = ITEMS.register("cthon_helmet",
+            () -> new ArmorItem(CthonArmorMaterial.CTHON, EquipmentSlotType.HEAD,
+                    new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
+    public static final RegistryObject<ArmorItem> cthon_leggings = ITEMS.register("cthon_leggings",
+            () -> new ArmorItem(CthonArmorMaterial.CTHON, EquipmentSlotType.LEGS,
+                    new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
+    public static final RegistryObject<ArmorItem> cthon_chestplate = ITEMS.register("cthon_chestplate",
+            () -> new ArmorItem(CthonArmorMaterial.CTHON, EquipmentSlotType.CHEST,
+                    new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
+    public static final RegistryObject<ArmorItem> cthon_boots = ITEMS.register("cthon_boots",
+            () -> new ArmorItem(CthonArmorMaterial.CTHON, EquipmentSlotType.FEET,
+                    new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
 } // end class
