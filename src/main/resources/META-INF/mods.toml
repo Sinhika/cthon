@@ -35,7 +35,14 @@ description='''Cthon, a toxic Nether ore that yields a rare, very strong metal w
 [[dependencies.cthon]]
     modId="simplecorelib"
     mandatory=true
-    versionRange="[1.16.5-2.0.7.5,1.16.5-2.0.8.0)"
+    versionRange="[1.16.5-2.0.8.0,1.16.5-2.0.9.0)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.cthon]]
+    modId="fusion"
+    mandatory=true
+    versionRange="[1.16.5-2.7.4.0,1.16.5-2.7.5.0)"
     ordering="NONE"
     side="BOTH"
 
