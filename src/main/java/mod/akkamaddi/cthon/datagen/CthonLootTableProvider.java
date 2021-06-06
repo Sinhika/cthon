@@ -12,21 +12,18 @@ import mod.akkamaddi.cthon.init.ModItems;
 import mod.alexndr.simplecorelib.datagen.BlockLootTableProvider;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.loot.ItemLootEntry;
-import net.minecraft.loot.LootEntry;
 import net.minecraft.loot.LootParameterSet;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTable.Builder;
-import net.minecraft.loot.functions.ApplyBonus;
 import net.minecraft.util.ResourceLocation;
 
-public class ChtonLootTableProvider extends BlockLootTableProvider
+public class CthonLootTableProvider extends BlockLootTableProvider
 {
 
-    public ChtonLootTableProvider(DataGenerator dataGeneratorIn)
+    public CthonLootTableProvider(DataGenerator dataGeneratorIn)
     {
         super(dataGeneratorIn);
     }
