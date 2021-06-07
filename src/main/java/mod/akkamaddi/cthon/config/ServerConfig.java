@@ -29,10 +29,10 @@ public final class ServerConfig
         builder.push("Ore Generation");
         serverCthonOreVeinSize = builder.comment("Cthon ore vein size")
                 .translation(Cthon.MODID + "config.CthonOreVeinSize")
-                .defineInRange("CthonOreVeinSize",  4, 0, Integer.MAX_VALUE);
+                .defineInRange("CthonOreVeinSize",  4, 1, Integer.MAX_VALUE);
         serverCthonOreVeinCount = builder.comment("Cthon ore vein count per chunk")
                 .translation(Cthon.MODID + "config.CthonOreVeinCount")
-                .defineInRange("CthonOreVeinCount",  4, 0, Integer.MAX_VALUE);
+                .defineInRange("CthonOreVeinCount",  4, 1, Integer.MAX_VALUE);
         serverCthonOreBottomHeight = builder
                 .comment("Cthon ore minimum height")
                 .translation(Cthon.MODID + ".config.serverCthonOreBottomHeight")
