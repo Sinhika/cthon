@@ -26,12 +26,12 @@ public class CthonDataGenerator
         DataGenerator gen = event.getGenerator();
         if (event.includeServer())
         {
-//            gen.addProvider(new Recipes(gen));
-//            gen.addProvider(new FusionRecipes(gen));
+            gen.addProvider(new Recipes(gen));
+            gen.addProvider(new FusionRecipes(gen));
             gen.addProvider(new ModBlockTags(gen, event.getExistingFileHelper()));
             gen.addProvider(new ModItemTags(gen, event.getExistingFileHelper()));
             gen.addProvider(new CthonLootTableProvider(gen));
-//            gen.addProvider(new CthonLootInjectorProvider(gen));
+            gen.addProvider(new CthonLootInjectorProvider(gen));
         }
      } // end gatherData()
 
