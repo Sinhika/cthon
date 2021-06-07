@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "cthon:cthon_elutriated_chunk"
+  },
+  "result": "cthon:cthon_ingot",
+  "experience": 2.0,
+  "cookingtime": 200
+}

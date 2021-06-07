@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "S S",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "cthon:cthon_ingot"
+    }
+  },
+  "result": {
+    "item": "cthon:cthon_leggings"
+  }
+}
