@@ -8,7 +8,9 @@ public class CthonInjectionLookup extends InjectionTableLookup
 
     public CthonInjectionLookup()
     {
-        // TODO Auto-generated constructor stub
+        super();
+        this.AddNetherAliases();
+        this.put("ruined_portal", "ruined_portal");
     }
 
 } // end class

@@ -42,7 +42,7 @@ public class CthonLootInjectorProvider extends LootTableInjectorProvider
         foo = createChestPool(1,1, 0.33F)
                 .add(ItemLootEntry.lootTableItem(ModItems.cthon_mephitic_chunk.get()).setWeight(1)
                         .apply(SetCount.setCount(RandomValueRange.between(1, 3))));
-        addInjectionTable(Cthon.MODID, "nether", foo);
+        addInjectionTable(Cthon.MODID, "bastion", foo);
                 
         return tables;
     } // end getTables()
