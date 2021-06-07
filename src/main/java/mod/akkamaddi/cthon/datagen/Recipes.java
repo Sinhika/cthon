@@ -60,6 +60,12 @@ public class Recipes extends RecipeProvider implements IConditionBuilder, ISimpl
     {
         setbuilder.buildOre2IngotRecipes(consumer, Ingredient.of(ModItems.cthon_elutriated_chunk.get()), 
                 ModItems.cthon_ingot.get(), has(ModItems.cthon_elutriated_chunk.get()), 2.0F, 200);
+        
+        setbuilder.buildVanillaRecyclingRecipes(consumer, Ingredient.of(ModItems.cthon_axe.get(), 
+                ModItems.cthon_boots.get(), ModItems.cthon_helmet.get(),
+                ModItems.cthon_hoe.get(), ModItems.cthon_pickaxe.get(), ModItems.cthon_shovel.get(),
+                ModItems.cthon_sword.get()), ModItems.cthon_nugget.get(), has(ModItems.cthon_axe.get()), 
+                10.0F, 200);
     } // end registerFurnaceRecipes()
 
 
