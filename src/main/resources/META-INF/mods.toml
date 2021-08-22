@@ -17,6 +17,8 @@ displayURL="http://minecraft.curseforge.com/projects/akkamaddis-simple-cthon"
 credits="akkamaddi (original mod), Sinhika (maintenance, ports)."
 authors="akkamaddi, Sinhika"
 description='''Cthon, a toxic Nether ore that yields a rare, very strong metal when processed.
+
+Additional Credits: akkamaddi, for updating the cthon ore texture.
 '''
 
 [[dependencies.cthon]]
