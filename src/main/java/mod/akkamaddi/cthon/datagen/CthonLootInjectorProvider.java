@@ -11,13 +11,13 @@ import mod.akkamaddi.cthon.Cthon;
 import mod.akkamaddi.cthon.init.ModItems;
 import mod.alexndr.simplecorelib.datagen.LootTableInjectorProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
-import net.minecraft.world.level.storage.loot.LootPool;
-import net.minecraft.world.level.storage.loot.RandomValueBounds;
-import net.minecraft.world.level.storage.loot.LootTable.Builder;
-import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable.Builder;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 public class CthonLootInjectorProvider extends LootTableInjectorProvider
 {
@@ -35,13 +35,13 @@ public class CthonLootInjectorProvider extends LootTableInjectorProvider
         // ruined_portal
         LootPool.Builder foo = createChestPool(1, 1, 0.25F)
                 .add(LootItem.lootTableItem(ModItems.cthon_mephitic_chunk.get()).setWeight(1)
-                        .apply(SetItemCountFunction.setCount(RandomValueBounds.between(1, 2))));
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2))));
         addInjectionTable(Cthon.MODID, "ruined_portal", foo);
         
         // nether
         foo = createChestPool(1,1, 0.33F)
                 .add(LootItem.lootTableItem(ModItems.cthon_mephitic_chunk.get()).setWeight(1)
-                        .apply(SetItemCountFunction.setCount(RandomValueBounds.between(1, 3))));
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))));
         addInjectionTable(Cthon.MODID, "bastion", foo);
                 
         return tables;

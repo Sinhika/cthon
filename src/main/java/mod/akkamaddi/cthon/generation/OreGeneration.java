@@ -1,12 +1,16 @@
 package mod.akkamaddi.cthon.generation;
 
-import mod.akkamaddi.cthon.Cthon;
+import java.util.List;
+
 import mod.akkamaddi.cthon.config.CthonConfig;
 import mod.akkamaddi.cthon.init.ModBlocks;
 import mod.alexndr.simplecorelib.world.OreGenUtils;
+import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 /**
@@ -16,16 +20,20 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
  */
 public class OreGeneration
 {
-    public static ConfiguredFeature<?, ?> ORE_CTHON;
+    public static final List<OreConfiguration.TargetBlockState> ORE_CTHON_TARGET = 
+            OreGenUtils.BuildNetherOreTargetList(ModBlocks.cthon_ore.get(), true);
+    public static ConfiguredFeature<OreConfiguration, ?> ORE_CTHON;
+    public static PlacedFeature CTHON_VEIN;
     
     /**
     * initialize nether Features.
     */
    public static void initNetherFeatures()
    {
-       ORE_CTHON = OreGenUtils.buildNetherOreFeature(Feature.ORE,
-               ModBlocks.cthon_ore.get().defaultBlockState(), CthonConfig.cthon_cfg);
-       OreGenUtils.registerFeature(Cthon.MODID, "cthon_ore_vein", ORE_CTHON);
+       ORE_CTHON = FeatureUtils.register("ore_cthon",
+               OreGenUtils.ConfigureOreFeature(ORE_CTHON_TARGET, CthonConfig.cthon_cfg.getVein_size(), 0.0F)); 
+       CTHON_VEIN = PlacementUtils.register("cthon_vein", 
+               OreGenUtils.ConfigurePlacedFeature( CthonConfig.cthon_cfg, ORE_CTHON));
    }
    
    /** 
@@ -33,6 +41,6 @@ public class OreGeneration
     */
    public static void generateNetherOres(BiomeLoadingEvent evt)
    {
-       evt.getGeneration().addFeature(Decoration.UNDERGROUND_DECORATION, OreGeneration.ORE_CTHON);
+       evt.getGeneration().addFeature(Decoration.UNDERGROUND_DECORATION, OreGeneration.CTHON_VEIN);
    }
 } // end class

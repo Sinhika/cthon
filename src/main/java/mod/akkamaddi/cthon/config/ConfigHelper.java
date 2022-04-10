@@ -1,7 +1,7 @@
 package mod.akkamaddi.cthon.config;
 
 import mod.alexndr.simplecorelib.config.ModOreConfig;
-import net.minecraft.world.level.levelgen.feature.configurations.RangeDecoratorConfiguration;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraftforge.fml.config.ModConfig;
 
 public final class ConfigHelper
@@ -14,11 +14,10 @@ public final class ConfigHelper
     {
         CthonConfig.addChestLoot = ConfigHolder.SERVER.serverAddChestLoot.get();
         
-        CthonConfig.cthon_cfg = new ModOreConfig(
-                new RangeDecoratorConfiguration(ConfigHolder.SERVER.serverCthonOreBottomHeight.get(), 0, 
-                                        ConfigHolder.SERVER.serverCthonOreMaxHeight.get()),
-                ConfigHolder.SERVER.serverCthonOreVeinSize.get(),
-                ConfigHolder.SERVER.serverCthonOreVeinCount.get());
+        CthonConfig.cthon_cfg = new ModOreConfig(ModOreConfig.FULL_RANGE, ConfigHolder.SERVER.serverCthonOreVeinSize.get(),
+                ConfigHolder.SERVER.serverCthonOreVeinCount.get(), true,
+                VerticalAnchor.absolute(ConfigHolder.SERVER.serverCthonOreBottomHeight.get()), 
+                VerticalAnchor.absolute(ConfigHolder.SERVER.serverCthonOreMaxHeight.get()));
         
         // recipe flags.
         CthonConfig.INSTANCE.putFlag("recycling_enabled", 

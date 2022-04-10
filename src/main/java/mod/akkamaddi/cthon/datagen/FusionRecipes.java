@@ -29,7 +29,7 @@ public class FusionRecipes extends AbstractFusionRecipeProvider implements ICond
 
     
     @Override
-    protected void buildShapelessRecipes(Consumer<FinishedRecipe> consumer)
+    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer)
     {
         registerCthonRecipes(consumer);
         registerCthonRecycling(consumer);
