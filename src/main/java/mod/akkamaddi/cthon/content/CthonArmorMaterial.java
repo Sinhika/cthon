@@ -2,17 +2,17 @@ package mod.akkamaddi.cthon.content;
 
 import java.util.function.Supplier;
 
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.LazyValue;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import mod.akkamaddi.cthon.init.ModItems;
 
-public enum CthonArmorMaterial implements IArmorMaterial 
+public enum CthonArmorMaterial implements ArmorMaterial 
 {
     CTHON("cthon:cthon", 66, new int[] {5,9,8,5}, 2, SoundEvents.ARMOR_EQUIP_GOLD, 2.0F, 1.0F,
             ()->{return Ingredient.of(ModItems.cthon_ingot.get());});
@@ -25,7 +25,7 @@ public enum CthonArmorMaterial implements IArmorMaterial
     private final SoundEvent soundEvent;
     private final float toughness;
     private final float knockbackResistance;
-    private final LazyValue<Ingredient> repairMaterial;
+    private final LazyLoadedValue<Ingredient> repairMaterial;
 
     private CthonArmorMaterial(String nameIn, int maxDamageIn, int[] drAmtArray, int enchantabilityIn,
             SoundEvent soundIn, float toughnessIn, float knockbackIn, Supplier<Ingredient> repairMatIn)
@@ -37,17 +37,17 @@ public enum CthonArmorMaterial implements IArmorMaterial
         soundEvent = soundIn;
         toughness = toughnessIn;
         knockbackResistance = knockbackIn;
-        repairMaterial = new LazyValue<>(repairMatIn);
+        repairMaterial = new LazyLoadedValue<>(repairMatIn);
     } // end ctor()
 
     @Override
-    public int getDurabilityForSlot(EquipmentSlotType slotIn)
+    public int getDurabilityForSlot(EquipmentSlot slotIn)
     {
         return MAX_DAMAGE_ARRAY[slotIn.getIndex()] * this.maxDamageFactor;
     }
 
     @Override
-    public int getDefenseForSlot(EquipmentSlotType slotIn)
+    public int getDefenseForSlot(EquipmentSlot slotIn)
     {
         return this.damageReductionAmountArray[slotIn.getIndex()];
     }

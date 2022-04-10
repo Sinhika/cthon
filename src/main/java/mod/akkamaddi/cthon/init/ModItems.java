@@ -3,14 +3,14 @@ package mod.akkamaddi.cthon.init;
 import mod.akkamaddi.cthon.Cthon;
 import mod.akkamaddi.cthon.content.CthonArmorMaterial;
 import mod.akkamaddi.cthon.content.CthonItemTier;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.item.ShovelItem;
-import net.minecraft.item.SwordItem;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.SwordItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -60,15 +60,15 @@ public final class ModItems
     
     // ARMOR
     public static final RegistryObject<ArmorItem> cthon_helmet = ITEMS.register("cthon_helmet",
-            () -> new ArmorItem(CthonArmorMaterial.CTHON, EquipmentSlotType.HEAD,
+            () -> new ArmorItem(CthonArmorMaterial.CTHON, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
     public static final RegistryObject<ArmorItem> cthon_leggings = ITEMS.register("cthon_leggings",
-            () -> new ArmorItem(CthonArmorMaterial.CTHON, EquipmentSlotType.LEGS,
+            () -> new ArmorItem(CthonArmorMaterial.CTHON, EquipmentSlot.LEGS,
                     new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
     public static final RegistryObject<ArmorItem> cthon_chestplate = ITEMS.register("cthon_chestplate",
-            () -> new ArmorItem(CthonArmorMaterial.CTHON, EquipmentSlotType.CHEST,
+            () -> new ArmorItem(CthonArmorMaterial.CTHON, EquipmentSlot.CHEST,
                     new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
     public static final RegistryObject<ArmorItem> cthon_boots = ITEMS.register("cthon_boots",
-            () -> new ArmorItem(CthonArmorMaterial.CTHON, EquipmentSlotType.FEET,
+            () -> new ArmorItem(CthonArmorMaterial.CTHON, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModTabGroups.MOD_ITEM_GROUP)));
 } // end class

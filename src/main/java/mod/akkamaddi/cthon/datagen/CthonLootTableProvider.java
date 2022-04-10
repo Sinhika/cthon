@@ -10,15 +10,15 @@ import com.mojang.datafixers.util.Pair;
 import mod.akkamaddi.cthon.init.ModBlocks;
 import mod.akkamaddi.cthon.init.ModItems;
 import mod.alexndr.simplecorelib.datagen.BlockLootTableProvider;
-import net.minecraft.block.Block;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.item.Item;
-import net.minecraft.loot.ItemLootEntry;
-import net.minecraft.loot.LootParameterSet;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.LootTable.Builder;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.LootTable.Builder;
+import net.minecraft.resources.ResourceLocation;
 
 public class CthonLootTableProvider extends BlockLootTableProvider
 {
@@ -29,7 +29,7 @@ public class CthonLootTableProvider extends BlockLootTableProvider
     }
 
     @Override
-    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, Builder>>>, LootParameterSet>> getTables()
+    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, Builder>>>, LootContextParamSet>> getTables()
     {
         tables.clear();
         standardDropTable(ModBlocks.cthon_block.get());
@@ -53,7 +53,7 @@ public class CthonLootTableProvider extends BlockLootTableProvider
     LootPool.Builder createItemWithoutFortuneDrops(Block blockIn, Item itemIn)
     {
         return droppingWithSilkTouch(blockIn, withExplosionDecay(blockIn,
-                ItemLootEntry.lootTableItem(itemIn)));
+                LootItem.lootTableItem(itemIn)));
     }
 
 } // end class

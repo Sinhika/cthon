@@ -3,7 +3,7 @@ package mod.akkamaddi.cthon.datagen;
 import mod.akkamaddi.cthon.Cthon;
 import mod.akkamaddi.cthon.init.ModBlocks;
 import mod.alexndr.simplecorelib.helpers.TagUtils;
-import net.minecraft.data.BlockTagsProvider;
+import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 

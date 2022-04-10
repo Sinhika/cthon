@@ -11,9 +11,9 @@ import mod.alexndr.fusion.api.datagen.FusionRecipeSetBuilder;
 import mod.alexndr.fusion.api.recipe.AbstractFusionRecipeProvider;
 import mod.alexndr.simplecorelib.datagen.ISimpleConditionBuilder;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
@@ -29,14 +29,14 @@ public class FusionRecipes extends AbstractFusionRecipeProvider implements ICond
 
     
     @Override
-    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer)
+    protected void buildShapelessRecipes(Consumer<FinishedRecipe> consumer)
     {
         registerCthonRecipes(consumer);
         registerCthonRecycling(consumer);
     }
     
     
-    protected void registerCthonRecipes(Consumer<IFinishedRecipe> consumer)
+    protected void registerCthonRecipes(Consumer<FinishedRecipe> consumer)
     {
         List<Ingredient> primary_inputs = new ArrayList<Ingredient>(2);
         Ingredient[] catalysts = new Ingredient[3];
@@ -51,7 +51,7 @@ public class FusionRecipes extends AbstractFusionRecipeProvider implements ICond
     }
     
     
-    protected void registerCthonRecycling(Consumer<IFinishedRecipe> consumer)
+    protected void registerCthonRecycling(Consumer<FinishedRecipe> consumer)
     {
         fusionbuilder.buildFusionRecyclingRecipes(consumer,
                 Ingredient.of(ModItems.cthon_axe.get(), ModItems.cthon_boots.get(), ModItems.cthon_helmet.get(),

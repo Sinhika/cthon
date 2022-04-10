@@ -1,7 +1,7 @@
 package mod.akkamaddi.cthon.config;
 
 import mod.alexndr.simplecorelib.config.ModOreConfig;
-import net.minecraft.world.gen.placement.TopSolidRangeConfig;
+import net.minecraft.world.level.levelgen.feature.configurations.RangeDecoratorConfiguration;
 import net.minecraftforge.fml.config.ModConfig;
 
 public final class ConfigHelper
@@ -15,7 +15,7 @@ public final class ConfigHelper
         CthonConfig.addChestLoot = ConfigHolder.SERVER.serverAddChestLoot.get();
         
         CthonConfig.cthon_cfg = new ModOreConfig(
-                new TopSolidRangeConfig(ConfigHolder.SERVER.serverCthonOreBottomHeight.get(), 0, 
+                new RangeDecoratorConfiguration(ConfigHolder.SERVER.serverCthonOreBottomHeight.get(), 0, 
                                         ConfigHolder.SERVER.serverCthonOreMaxHeight.get()),
                 ConfigHolder.SERVER.serverCthonOreVeinSize.get(),
                 ConfigHolder.SERVER.serverCthonOreVeinCount.get());

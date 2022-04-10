@@ -1,13 +1,13 @@
 package mod.akkamaddi.cthon.content;
 
 import mod.akkamaddi.cthon.init.ModItems;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.LazyValue;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.util.LazyLoadedValue;
 
 import java.util.function.Supplier;
 
-public enum CthonItemTier implements IItemTier
+public enum CthonItemTier implements Tier
 {
     CTHON(5, 4350, 22.0F, 7.0F, 2, ()->{ return Ingredient.of(ModItems.cthon_ingot.get()); });
     
@@ -16,7 +16,7 @@ public enum CthonItemTier implements IItemTier
     private final float efficiency;
     private final float attackDamage;
     private final int enchantability;
-    private final LazyValue<Ingredient> repairMaterial;
+    private final LazyLoadedValue<Ingredient> repairMaterial;
 
     private CthonItemTier(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn,
             int enchantabilityIn, Supplier<Ingredient> repairMaterialIn)
@@ -26,7 +26,7 @@ public enum CthonItemTier implements IItemTier
         this.efficiency = efficiencyIn;
         this.attackDamage = attackDamageIn;
         this.enchantability = enchantabilityIn;
-        this.repairMaterial = new LazyValue<>(repairMaterialIn);
+        this.repairMaterial = new LazyLoadedValue<>(repairMaterialIn);
     }
 
     @Override

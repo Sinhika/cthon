@@ -4,7 +4,7 @@ import mod.akkamaddi.cthon.Cthon;
 import mod.akkamaddi.cthon.init.ModItems;
 import mod.alexndr.simplecorelib.helpers.TagUtils;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.ItemTagsProvider;
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ModItemTags extends ItemTagsProvider
