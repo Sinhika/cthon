@@ -2,15 +2,15 @@ package mod.akkamaddi.cthon.content;
 
 import java.util.function.Supplier;
 
+import mod.akkamaddi.cthon.init.ModItems;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.util.LazyLoadedValue;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import mod.akkamaddi.cthon.init.ModItems;
+import net.minecraftforge.common.util.Lazy;
 
 public enum CthonArmorMaterial implements ArmorMaterial 
 {
@@ -25,7 +25,7 @@ public enum CthonArmorMaterial implements ArmorMaterial
     private final SoundEvent soundEvent;
     private final float toughness;
     private final float knockbackResistance;
-    private final LazyLoadedValue<Ingredient> repairMaterial;
+    private final Lazy<Ingredient> repairMaterial;
 
     private CthonArmorMaterial(String nameIn, int maxDamageIn, int[] drAmtArray, int enchantabilityIn,
             SoundEvent soundIn, float toughnessIn, float knockbackIn, Supplier<Ingredient> repairMatIn)
@@ -37,7 +37,7 @@ public enum CthonArmorMaterial implements ArmorMaterial
         soundEvent = soundIn;
         toughness = toughnessIn;
         knockbackResistance = knockbackIn;
-        repairMaterial = new LazyLoadedValue<>(repairMatIn);
+        repairMaterial = Lazy.of(repairMatIn);
     } // end ctor()
 
     @Override

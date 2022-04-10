@@ -3,7 +3,7 @@
 modLoader="javafml" #mandatory
 
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
-loaderVersion="[36,)" #mandatory
+loaderVersion="[39,)" #mandatory
 issueTrackerURL="https://github.com/Sinhika/cthon/issues"
 license="LGPL 3"
 
@@ -24,42 +24,42 @@ Additional Credits: akkamaddi, for updating the cthon ore texture.
 [[dependencies.cthon]]
     modId="forge"
     mandatory=true
-    versionRange="[36.1.0,37.0.0)"
+    versionRange="[39.1.0,40)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.cthon]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.5,1.17)"
+    versionRange="[1.18.1,1.18.2)"
     ordering="NONE"
     side="BOTH"
     
 [[dependencies.cthon]]
     modId="simplecorelib"
     mandatory=true
-    versionRange="[1.16.5-2.0.8.0,1.16.5-2.0.9.0)"
+    versionRange="[1.18.1-4.0.1.0,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.cthon]]
     modId="fusion"
     mandatory=true
-    versionRange="[1.16.5-2.7.4.0,1.16.5-2.7.5.0)"
+    versionRange="[1.18.1-4.0.1.0,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.cthon]]
-        modId="silents_mechanisms"
-        mandatory=false
-        versionRange="[0.8.9,)"
-        ordering="BEFORE"
-        side="BOTH"
-        
-[[dependencies.cthon]]
-        modId="silentgear"
-        mandatory=false
-        versionRange="[1.16.3-2.6.5,)"
-        ordering="BEFORE"
-        side="BOTH"
-        
+#[[dependencies.cthon]]
+#        modId="silents_mechanisms"
+#        mandatory=false
+#        versionRange="[0.8.9,)"
+#        ordering="BEFORE"
+#        side="BOTH"
+#        
+#[[dependencies.cthon]]
+#        modId="silentgear"
+#        mandatory=false
+#        versionRange="[1.16.3-2.6.5,)"
+#        ordering="BEFORE"
+#        side="BOTH"
+#        

@@ -1,67 +1,27 @@
 package mod.akkamaddi.cthon.content;
 
+import java.util.List;
+
+import mod.akkamaddi.cthon.Cthon;
 import mod.akkamaddi.cthon.init.ModItems;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.ForgeTier;
+import net.minecraftforge.common.TierSortingRegistry;
 
-import java.util.function.Supplier;
-
-public enum CthonItemTier implements Tier
+public class CthonItemTier
 {
-    CTHON(5, 4350, 22.0F, 7.0F, 2, ()->{ return Ingredient.of(ModItems.cthon_ingot.get()); });
+    public static final Tag.Named<Block> CTHON_TAG = 
+            BlockTags.createOptional(new ResourceLocation(Cthon.MODID, "needs_cthon_tool"));
     
-    private final int harvestLevel;
-    private final int maxUses;
-    private final float efficiency;
-    private final float attackDamage;
-    private final int enchantability;
-    private final LazyLoadedValue<Ingredient> repairMaterial;
-
-    private CthonItemTier(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn,
-            int enchantabilityIn, Supplier<Ingredient> repairMaterialIn)
-    {
-        this.harvestLevel = harvestLevelIn;
-        this.maxUses = maxUsesIn;
-        this.efficiency = efficiencyIn;
-        this.attackDamage = attackDamageIn;
-        this.enchantability = enchantabilityIn;
-        this.repairMaterial = new LazyLoadedValue<>(repairMaterialIn);
-    }
-
-    @Override
-    public int getUses()
-    {
-        return this.maxUses;
-    }
-
-    @Override
-    public float getSpeed()
-    {
-        return this.efficiency;
-    }
-
-    @Override
-    public float getAttackDamageBonus()
-    {
-        return this.attackDamage;
-    }
-
-    @Override
-    public int getLevel()
-    {
-        return this.harvestLevel;
-    }
-
-    @Override
-    public int getEnchantmentValue()
-    {
-        return this.enchantability;
-    }
-
-    @Override
-    public Ingredient getRepairIngredient()
-    {
-        return this.repairMaterial.get();
-    }
-} // end class
+    public static final Tier CTHON = TierSortingRegistry.registerTier(
+            new ForgeTier(5, 4350, 22.0F, 7.0F, 2, CTHON_TAG, ()->Ingredient.of(ModItems.cthon_ingot.get())),
+            new ResourceLocation(Cthon.MODID, "cthon"), List.of(Tiers.NETHERITE), List.of());
+    
+    
+ } // end class

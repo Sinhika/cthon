@@ -1,13 +1,16 @@
 package mod.akkamaddi.cthon.datagen;
 
+import java.util.List;
+
 import mod.akkamaddi.cthon.Cthon;
+import mod.akkamaddi.cthon.init.ModBlocks;
 import mod.akkamaddi.cthon.init.ModItems;
+import mod.alexndr.simplecorelib.datagen.MiningItemTags;
 import mod.alexndr.simplecorelib.helpers.TagUtils;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-public class ModItemTags extends ItemTagsProvider
+public class ModItemTags extends MiningItemTags
 {
 
     public ModItemTags(DataGenerator dataGenerator, ExistingFileHelper existingFileHelper)
@@ -19,6 +22,7 @@ public class ModItemTags extends ItemTagsProvider
     @Override
     protected void addTags()
     {
+        super.addTags();
         registerNuggetTags();
         registerIngotTags();
     }
@@ -38,4 +42,26 @@ public class ModItemTags extends ItemTagsProvider
         this.tag(TagUtils.forgeTag("ingots/cthon"))
             .add(ModItems.cthon_ingot.get());
     }
+
+    @Override
+    protected void registerOreTags()
+    {
+        // register "forge:ores" tags
+        this.tag(TagUtils.forgeTag( "ores"))
+            .addTag(TagUtils.forgeTag( "ores/cthon"));
+        this.tag(TagUtils.forgeTag( "ores/cthon"))
+            .add(ModBlocks.cthon_ore.get().asItem());
+
+        // register forge ore_rates tags.
+        this.registerOreRateTags( List.of(), // sparse 
+                List.of(ModBlocks.cthon_ore.get()),
+                List.of());
+        
+        // register forge:ores_in_ground tags
+        this.registerOresInGroundTags( List.of(),   // stone ores
+                List.of(),                          // deepslate ores
+                List.of(ModBlocks.cthon_ore.get()));  // netherrack ore
+    }
+    
+    
 } // end class
