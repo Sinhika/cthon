@@ -9,16 +9,16 @@ import com.mojang.datafixers.util.Pair;
 
 import mod.akkamaddi.cthon.init.ModBlocks;
 import mod.akkamaddi.cthon.init.ModItems;
-import mod.alexndr.simplecorelib.datagen.BlockLootTableProvider;
-import net.minecraft.world.level.block.Block;
+import mod.alexndr.simplecorelib.api.datagen.BlockLootTableProvider;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTable.Builder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 
 public class CthonLootTableProvider extends BlockLootTableProvider
 {

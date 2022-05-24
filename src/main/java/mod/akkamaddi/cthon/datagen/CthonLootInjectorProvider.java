@@ -9,7 +9,7 @@ import com.mojang.datafixers.util.Pair;
 
 import mod.akkamaddi.cthon.Cthon;
 import mod.akkamaddi.cthon.init.ModItems;
-import mod.alexndr.simplecorelib.datagen.LootTableInjectorProvider;
+import mod.alexndr.simplecorelib.api.datagen.LootTableInjectorProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootPool;

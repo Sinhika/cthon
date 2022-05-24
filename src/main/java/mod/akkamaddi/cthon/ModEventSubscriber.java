@@ -8,10 +8,9 @@ import org.apache.logging.log4j.Logger;
 import mod.akkamaddi.cthon.config.ConfigHelper;
 import mod.akkamaddi.cthon.config.ConfigHolder;
 import mod.akkamaddi.cthon.config.CthonConfig;
-import mod.akkamaddi.cthon.generation.OreGeneration;
 import mod.akkamaddi.cthon.init.ModBlocks;
 import mod.akkamaddi.cthon.init.ModTabGroups;
-import mod.alexndr.simplecorelib.config.FlagCondition;
+import mod.alexndr.simplecorelib.api.config.FlagCondition;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -38,10 +37,6 @@ public class ModEventSubscriber
     @SubscribeEvent
     public static void onCommonSetup(final FMLCommonSetupEvent event)
     {
-        event.enqueueWork(() -> {
-            OreGeneration.initNetherFeatures();
-        });
-        LOGGER.debug("Common setup done");
     } // end onCommonSetup
 
     /**

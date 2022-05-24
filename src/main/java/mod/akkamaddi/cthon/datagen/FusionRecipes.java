@@ -9,7 +9,7 @@ import mod.akkamaddi.cthon.config.CthonConfig;
 import mod.akkamaddi.cthon.init.ModItems;
 import mod.alexndr.fusion.api.datagen.FusionRecipeSetBuilder;
 import mod.alexndr.fusion.api.recipe.AbstractFusionRecipeProvider;
-import mod.alexndr.simplecorelib.datagen.ISimpleConditionBuilder;
+import mod.alexndr.simplecorelib.api.datagen.ISimpleConditionBuilder;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Items;

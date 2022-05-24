@@ -1,6 +1,6 @@
 package mod.akkamaddi.cthon.loot;
 
-import mod.alexndr.simplecorelib.helpers.InjectionTableLookup;
+import mod.alexndr.simplecorelib.api.helpers.InjectionTableLookup;
 
 @SuppressWarnings("serial")
 public class CthonInjectionLookup extends InjectionTableLookup
