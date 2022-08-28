@@ -1,6 +1,8 @@
 {
   "pack": {
-    "pack_format": 5,
-    "description": "Resources for akkamaddi's Simple Cthon"
+    "description": "Resources for akkamaddi's Simple Cthon",
+     "pack_format": 9,
+     "forge:resource_pack_format": 9,
+     "forge:data_pack_format": 10  
   }
 }

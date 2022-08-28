@@ -2,7 +2,7 @@ package mod.akkamaddi.cthon.init;
 
 import mod.akkamaddi.cthon.Cthon;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.OreBlock;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -14,8 +14,8 @@ public final class ModBlocks
             DeferredRegister.create(ForgeRegistries.BLOCKS, Cthon.MODID);
     
     // Ore block
-    public static final RegistryObject<OreBlock> cthon_ore =  BLOCKS.register("cthon_ore",
-            () -> new OreBlock(Block.Properties.of(Material.STONE).strength(14.0F, 14.0F).requiresCorrectToolForDrops()));
+    public static final RegistryObject<DropExperienceBlock> cthon_ore =  BLOCKS.register("cthon_ore",
+            () -> new DropExperienceBlock(Block.Properties.of(Material.STONE).strength(14.0F, 14.0F).requiresCorrectToolForDrops()));
                     // .harvestTool(ToolType.PICKAXE)..harvestLevel(4)));
     
     // storage block

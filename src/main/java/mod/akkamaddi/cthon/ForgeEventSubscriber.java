@@ -5,16 +5,13 @@ import org.apache.logging.log4j.Logger;
 
 import mod.akkamaddi.cthon.config.CthonConfig;
 import mod.akkamaddi.cthon.content.CthonArmorMaterial;
-import mod.akkamaddi.cthon.generation.OreGeneration;
 import mod.akkamaddi.cthon.loot.CthonInjectionLookup;
 import mod.alexndr.simplecorelib.api.helpers.ArmorUtils;
 import mod.alexndr.simplecorelib.api.helpers.LootUtils;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -39,20 +36,7 @@ public final class ForgeEventSubscriber
         } // end-if config allows
     } // end LootLoad()
     
-    
-    /**
-     * Biome loading triggers ore generation.
-     */
-    @SubscribeEvent(priority=EventPriority.HIGH)
-    public static void onBiomeLoading(BiomeLoadingEvent evt)
-    {
-        if (evt.getCategory() == Biome.BiomeCategory.NETHER) 
-        {
-            OreGeneration.generateNetherOres(evt);
-        }
-    } // end onBiomeLoading()
-    
-    /**
+     /**
      * Intercept wither damage if player is wearing a full set of cthon armor.
      * @param event
      */
