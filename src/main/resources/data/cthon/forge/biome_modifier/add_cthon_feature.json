@@ -1,6 +1,6 @@
 {
 	"type" : "forge:add_features",
 	"biomes" : "#minecraft:is_nether",
-	"features" : "cthon:chton_vein",
+	"features" : "cthon:cthon_vein",
 	"step" : "underground_decoration"
 }
