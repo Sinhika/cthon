@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "cthon:cthon_ingot"
+    },
+    "T": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "SS ",
+    "ST ",
+    " T "
+  ],
+  "result": {
+    "item": "cthon:cthon_axe"
+  }
+}

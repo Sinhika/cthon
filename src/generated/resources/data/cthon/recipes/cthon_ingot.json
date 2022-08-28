@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cthon:cthon_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "cthon:cthon_ingot"
+  }
+}

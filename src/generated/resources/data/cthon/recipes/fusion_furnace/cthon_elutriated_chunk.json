@@ -1,0 +1,27 @@
+{
+  "type": "fusion:alloying",
+  "catalyst": {
+    "item": "minecraft:gold_nugget"
+  },
+  "cookingtime": 600,
+  "experience": 1.0,
+  "inputs": [
+    {
+      "item": "cthon:cthon_mephitic_chunk"
+    },
+    [
+      {
+        "item": "minecraft:blue_ice"
+      },
+      {
+        "item": "minecraft:ice"
+      },
+      {
+        "item": "minecraft:packed_ice"
+      }
+    ]
+  ],
+  "output": {
+    "item": "cthon:cthon_elutriated_chunk"
+  }
+}

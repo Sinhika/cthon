@@ -1,0 +1,38 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "cthon:flag",
+          "flag": "recycling_enabled"
+        }
+      ],
+      "recipe": {
+        "type": "fusion:alloying",
+        "catalyst": {
+          "item": "minecraft:gold_ingot"
+        },
+        "cookingtime": 600,
+        "experience": 40.0,
+        "inputs": [
+          [
+            {
+              "item": "cthon:cthon_chestplate"
+            },
+            {
+              "item": "cthon:cthon_leggings"
+            }
+          ],
+          {
+            "item": "minecraft:netherrack"
+          }
+        ],
+        "output": {
+          "count": 2,
+          "item": "cthon:cthon_elutriated_chunk"
+        }
+      }
+    }
+  ]
+}

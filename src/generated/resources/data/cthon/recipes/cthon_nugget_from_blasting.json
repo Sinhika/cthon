@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 10.0,
+  "ingredient": [
+    {
+      "item": "cthon:cthon_axe"
+    },
+    {
+      "item": "cthon:cthon_boots"
+    },
+    {
+      "item": "cthon:cthon_helmet"
+    },
+    {
+      "item": "cthon:cthon_hoe"
+    },
+    {
+      "item": "cthon:cthon_pickaxe"
+    },
+    {
+      "item": "cthon:cthon_shovel"
+    },
+    {
+      "item": "cthon:cthon_sword"
+    }
+  ],
+  "result": "cthon:cthon_nugget"
+}
