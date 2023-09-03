@@ -8,7 +8,7 @@ import mod.akkamaddi.cthon.content.CthonArmorMaterial;
 import mod.akkamaddi.cthon.loot.CthonInjectionLookup;
 import mod.alexndr.simplecorelib.api.helpers.ArmorUtils;
 import mod.alexndr.simplecorelib.api.helpers.LootUtils;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -50,7 +50,7 @@ public final class ForgeEventSubscriber
             LOGGER.debug("caught LivingAttackEvent");
 
             // wither damage and are they wearing full cthon armor?
-            if ((event.getSource() == DamageSource.WITHER) &&
+            if ((event.getSource().is(DamageTypes.WITHER)) &&
                     ArmorUtils.isPlayerWearingFullSet(player, CthonArmorMaterial.CTHON))
             {
                 // pro-forma cancelable check.

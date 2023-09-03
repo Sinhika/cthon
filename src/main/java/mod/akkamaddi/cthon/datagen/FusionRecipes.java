@@ -7,10 +7,10 @@ import java.util.function.Consumer;
 import mod.akkamaddi.cthon.Cthon;
 import mod.akkamaddi.cthon.config.CthonConfig;
 import mod.akkamaddi.cthon.init.ModItems;
+import mod.alexndr.fusion.api.datagen.AbstractFusionRecipeProvider;
 import mod.alexndr.fusion.api.datagen.FusionRecipeSetBuilder;
-import mod.alexndr.fusion.api.recipe.AbstractFusionRecipeProvider;
 import mod.alexndr.simplecorelib.api.datagen.ISimpleConditionBuilder;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -21,15 +21,15 @@ public class FusionRecipes extends AbstractFusionRecipeProvider implements ICond
 {
     private FusionRecipeSetBuilder fusionbuilder;
 
-    public FusionRecipes(DataGenerator generatorIn)
+    public FusionRecipes(PackOutput pOutput)
     {
-        super(generatorIn);
+        super(pOutput);
         fusionbuilder = new FusionRecipeSetBuilder(Cthon.MODID);
     }
 
     
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer)
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer)
     {
         registerCthonRecipes(consumer);
         registerCthonRecycling(consumer);
