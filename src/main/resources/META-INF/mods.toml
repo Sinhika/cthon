@@ -3,16 +3,16 @@
 modLoader="javafml" #mandatory
 
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
-loaderVersion="[43,)" #mandatory
+loaderVersion="${loader_version_range}" #mandatory
 issueTrackerURL="https://github.com/Sinhika/cthon/issues"
-license="LGPL 3"
+license="${mod_license}"
 
 [[mods]]
-modId="cthon"
+modId="${mod_id}"
 version="${file.jarVersion}"
 displayName="akkamaddi's Simple Cthon"
 logo="cthon_logo.png"
-updateJSONURL="https://raw.githubusercontent.com/Sinhika/cthon/1.19/update.json"
+updateJSONURL="https://raw.githubusercontent.com/Sinhika/cthon/1.20/update.json"
 displayURL="http://minecraft.curseforge.com/projects/akkamaddis-simple-cthon"
 credits="akkamaddi (original mod), Sinhika (maintenance, ports)."
 authors="akkamaddi, Sinhika"
@@ -21,31 +21,31 @@ description='''Cthon, a toxic Nether ore that yields a rare, very strong metal w
 Additional Credits: akkamaddi, for updating the cthon ore texture.
 '''
 
-[[dependencies.cthon]]
+[[dependencies.${mod_id}]]
     modId="forge"
     mandatory=true
-    versionRange="[43.1.0,44)"
+    versionRange="${forge_version_range}"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.cthon]]
+[[dependencies.${mod_id}]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.2, 1.19.3)"
+    versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
     
-[[dependencies.cthon]]
+[[dependencies.${mod_id}]]
     modId="simplecorelib"
     mandatory=true
-    versionRange="[1.19.2-5.1.0.0,1.19.2-5.2.0.0)"
+    versionRange="${simplecore_range}"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.cthon]]
+[[dependencies.${mod_id}]]
     modId="fusion"
     mandatory=true
-    versionRange="[1.19.2-5.1.0.0, 1.19.2-5.2.0.0)"
+    versionRange="${fusion_range}"
     ordering="NONE"
     side="BOTH"
 
