@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "cthon_nugget_from_blasting": {
+    "has_item": {
       "conditions": {
         "items": [
           {
             "items": [
-              "cthon:cthon_axe"
+              "cthon:cthon_ingot"
             ]
           }
         ]
@@ -15,20 +15,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "cthon:cthon_nugget_from_blasting"
+        "recipe": "cthon:cthon_ingot_from_nuggets"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "cthon_nugget_from_blasting",
+      "has_item",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "cthon:cthon_nugget_from_blasting"
+      "cthon:cthon_ingot_from_nuggets"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

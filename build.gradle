@@ -62,8 +62,8 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // required for BucketLib
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+           // property 'mixin.env.remapRefMap', 'true'
+           // property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             mods {
                 "${mod_id}" {
@@ -92,7 +92,8 @@ minecraft {
         
         data {
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'cthon', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), '--existing-mod', 'simplecorelib'
+            args '--mod', 'cthon', '--all', '--output', file('src/generated/resources/'), 
+            '--existing', file('src/main/resources/'), '--existing-mod', 'simplecorelib'
         }
     }
 }

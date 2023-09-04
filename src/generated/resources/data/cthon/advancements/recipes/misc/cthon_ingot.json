@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "cthon:cthon_helmet"
+        "recipe": "cthon:cthon_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,8 @@
   ],
   "rewards": {
     "recipes": [
-      "cthon:cthon_helmet"
+      "cthon:cthon_ingot"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

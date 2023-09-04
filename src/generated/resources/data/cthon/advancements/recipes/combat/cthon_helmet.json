@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "cthon:cthon_chestplate"
+        "recipe": "cthon:cthon_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,8 @@
   ],
   "rewards": {
     "recipes": [
-      "cthon:cthon_chestplate"
+      "cthon:cthon_helmet"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

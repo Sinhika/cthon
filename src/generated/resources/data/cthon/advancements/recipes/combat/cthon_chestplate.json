@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "cthon_ingot_from_smelting": {
+    "has_item": {
       "conditions": {
         "items": [
           {
             "items": [
-              "cthon:cthon_elutriated_chunk"
+              "cthon:cthon_ingot"
             ]
           }
         ]
@@ -15,20 +15,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "cthon:cthon_ingot_from_smelting"
+        "recipe": "cthon:cthon_chestplate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "cthon_ingot_from_smelting",
+      "has_item",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "cthon:cthon_ingot_from_smelting"
+      "cthon:cthon_chestplate"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

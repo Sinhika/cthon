@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "cthon:cthon_pickaxe"
+        "recipe": "cthon:cthon_boots"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,8 @@
   ],
   "rewards": {
     "recipes": [
-      "cthon:cthon_pickaxe"
+      "cthon:cthon_boots"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

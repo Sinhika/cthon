@@ -9,8 +9,8 @@ license="${mod_license}"
 
 [[mods]]
 modId="${mod_id}"
-version="${file.jarVersion}"
-displayName="akkamaddi's Simple Cthon"
+version="${version}"
+displayName="${mod_name}"
 logo="cthon_logo.png"
 updateJSONURL="https://raw.githubusercontent.com/Sinhika/cthon/1.20/update.json"
 displayURL="http://minecraft.curseforge.com/projects/akkamaddis-simple-cthon"

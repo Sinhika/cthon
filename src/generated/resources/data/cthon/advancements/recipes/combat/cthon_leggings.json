@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "cthon:cthon_boots"
+        "recipe": "cthon:cthon_leggings"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,8 @@
   ],
   "rewards": {
     "recipes": [
-      "cthon:cthon_boots"
+      "cthon:cthon_leggings"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }
